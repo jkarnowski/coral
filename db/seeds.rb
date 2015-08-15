@@ -5,3 +5,41 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+50.times do
+  Teacher.create({
+    name: Faker::Name.name,
+    email: Faker::Internet.email,
+    bio: Faker::Lorem.paragraph,
+    grade_level: ['elementary', 'middleschool', 'highschool'].sample,
+    subject: ['math', 'english', 'history', 'science'].sample
+  })
+end
+
+(0..50).each do |number|
+  number = Video.create({
+    embedded_url: Faker::Internet.url,
+    teacher_id: number
+  })
+end
+
+(0..50).each do |number|
+  number = Feedback.create({
+    content: Faker::Lorem.paragraph,
+    teacher_id: (1..10).to_a.sample,
+    video_id: number
+  })
+end
+
+(0..50).each { |number| rubrics = Rubric.create({}) }
+
+(0..50).each do |number|
+
+  number = Criterion.create({
+    rating: (1..5).to_a.sample,
+    enabled: [true, false].sample,
+    description: Faker::Lorem.paragraph,
+    rubric_id: number
+    })
+end
