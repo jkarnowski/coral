@@ -9,7 +9,7 @@ class FeedbacksController < ApplicationController
 
   def create
     Feedback.create(feedback_params)
-   redirect_to :back
+    redirect_to :back
   end
 
     private
