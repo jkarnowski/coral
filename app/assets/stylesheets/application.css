@@ -19,6 +19,10 @@ html {
 		box-sizing: border-box;
 }
 
+* {
+  font-family: 'Rubik', sans-serif;
+}
+
 *, *:before, *:after {
 		-webkit-box-sizing: inherit;
 		-moz-box-sizing: inherit;
@@ -30,3 +34,8 @@ html {
   width: 40%;
   display: inline-block;
 }
+
+
+
+
+

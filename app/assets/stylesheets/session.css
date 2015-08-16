@@ -1,0 +1,15 @@
+.loginfish {
+  font-family: 'Lato', sans-serif;
+  color: white;
+  font-size: 2em;
+  text-align: center;
+}
+
+.boxing {
+  width: 20%;
+  text-align: center;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: #CC3300;
+  border-radius: 20px;
+}

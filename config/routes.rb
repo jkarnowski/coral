@@ -4,10 +4,8 @@ Rails.application.routes.draw do
     post 'logout' => :destroy
   end
 
-
   get 'videos/sorted_by_subject', :to => 'videos#sorted_by_subject'
   get 'videos/sorted_by_grade_level', :to => 'videos#sorted_by_grade_level'
-
 
   resources :videos
 

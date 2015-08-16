@@ -13,6 +13,9 @@ class VideosController < ApplicationController
   def show
     @video = Video.find_by(id: params[:id])
     @rubric = Rubric.new
+    @feedbacks = @video.feedbacks
+    p "_" * 100
+    p @feedbacks
   end
 
   def new
