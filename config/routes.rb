@@ -4,6 +4,9 @@ Rails.application.routes.draw do
     post 'logout' => :destroy
   end
 
+  # resources :videos do
+  #   resources :feedbacks
+  # end
   resources :videos
   resources :feedbacks
 
