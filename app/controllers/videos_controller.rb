@@ -1,5 +1,6 @@
 class VideosController < ApplicationController
 	include VideosHelper
+  include SessionsHelper
   def index
     @videos = Video.all
     # videos.each do |video|
@@ -15,16 +16,21 @@ class VideosController < ApplicationController
   end
 
   def new
-    video_params = params[:video]
 
-  	@video = Video.create(
-  		teacher_id: session[:id],
-  		embedded_url: video_params[:embedded_url]
-  		)
-  	# Working on using a module here from videos_helper
-  	# @youtube_id = get_embed_code(@video)
+  end
 
+  def create
+    p "I'm here"
+    p "*" * 100
+
+    video_params = params[:videos]
+    @video = Video.create(
+      teacher_id: session[:id],
+      embedded_url: video_params[:embedded_url]
+      )
     @youtube_id = @video.embedded_url[/(=[\d\D]{5,})/].slice(1..-1)
+    p current_user
+    redirect_to "/teachers/#{current_user.id}"
   end
 
 end

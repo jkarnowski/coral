@@ -1,5 +1,13 @@
 <h1>This is your profile page!</h1>
 <h2>Welcome  <%= @teacher.name %>!</h2>
 <h3>Is this your email? <%= @teacher.email %></h3>
-
+<h2>Add a Video</h2>
+<%= button_to "Add New Video", new_video_path, :class => "btn btn-default", :method => :get %>
 <h2>My Videos</h2>
+
+<% @videos.each do |video| %>
+  <% youtube_id = video.embedded_url[/(=[\d\D]{5,})/].slice(1..-1) %>
+  <div class="video-container">
+    <iframe width="200"  src="https://www.youtube.com/embed/<%= youtube_id %>" frameborder="0" allowfullscreen></iframe>
+  </div>
+<% end %>
