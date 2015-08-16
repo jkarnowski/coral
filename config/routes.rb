@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   get 'sessions/destroy'
 
   get 'sessions/create'
@@ -9,11 +10,14 @@ Rails.application.routes.draw do
     resources :feedbacks
   end
 
+  resources :videos
+  resources :feedbacks
+
+
   resources :teachers
 
-  resources :rubric do
-    resources :criterion
-  end
+  resources :rubric
+  resources :criterion
 
   
 
