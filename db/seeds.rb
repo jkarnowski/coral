@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-50.times do
+10.times do
   Teacher.create({
     name: Faker::Name.name,
     email: Faker::Internet.email,
@@ -17,14 +17,14 @@
   })
 end
 
-(0..50).each do |number|
+(1..10).each do |number|
   number = Video.create({
-    embedded_url: Faker::Internet.url,
+    embedded_url: "https://www.youtube.com/watch?v=lWA2pjMjpBs",
     teacher_id: number
   })
 end
 
-(0..50).each do |number|
+(1..10).each do |number|
   number = Feedback.create({
     content: Faker::Lorem.paragraph,
     teacher_id: (1..10).to_a.sample,
@@ -32,9 +32,9 @@ end
   })
 end
 
-(0..50).each { |number| rubrics = Rubric.create({}) }
+(1..10).each { |number| rubrics = Rubric.create({}) }
 
-(0..50).each do |number|
+(1..10).each do |number|
 
   number = Criterion.create({
     rating: (1..5).to_a.sample,
