@@ -20,6 +20,8 @@ end
 (1..10).each do |number|
   number = Video.create({
     embedded_url: "https://www.youtube.com/watch?v=lWA2pjMjpBs",
+    title: Faker::Lorem.sentence,
+    youtube_id: "xWNzZYCOyEE",
     teacher_id: number
   })
 end

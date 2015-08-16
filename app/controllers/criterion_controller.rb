@@ -4,6 +4,7 @@ class CriterionController < ApplicationController
     Criterion.create(criterion_params)
     redirect_to :back
   end
+
   private
 
   def criterion_params

@@ -1,59 +1,25 @@
+var categories= ['','Accessories', 'Audiophile', 'Camera & Photo', 'Cell Phones', 'Computers','eBook Readers','Gadgets','GPS & Navigation','Home Audio','Office Electronics','Portable Audio','Portable Video','Security & Surveillance','Service','Television & Video','Car & Vehicle'];
 
-<div style="width: 100%;">
-  <div class="col-md-8"><h1>Welcome  <%= @teacher.name %>!</h1>
-    <div class="row">
-      <div class="col-md-6"><p>Bio: <%= @teacher.bio %></p></div>
-      <div class="col-md-6"><p>Logged in as: <%= @teacher.email %></p></div>
-      <div class="col-md-6"><p>Grade: <%= @teacher.grade_level %></p></div>
-      <div class="col-md-6"><p>Subject Expertise: <%= @teacher.subject %></p></div>
-    </div>
-  </div>
-  <div style="text-align: right;" class="col-md-4"><%= button_to "Edit Profile", edit_teacher_path, :class => "btn btn-default", :method => :get %></div>
-</div>
-<br>
-<br>
-<br>
-<div style="margin-top: 50px; display: inline-block;">
-<%= button_to "Add New Video", new_video_path, :class => "btn btn-default", :method => :get %>
-<h2>My Videos</h2>
-
-
-<% @videos.each do |video| %>
-  <div class="video-container">
-    <%= link_to video.title, video_path(video.id) %>
-    <iframe width="200"  src="https://www.youtube.com/embed/<%= video.youtube_id %>" frameborder="0" allowfullscreen></iframe>
-  </div>
-<% end %>
-</div>
-
-<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-<h1> Feedback </h1>
-<div id="wrapper">
-</div>
-
-<script>
-var categories= ['Culture', 'Instructional Strageties', 'Engagement', 'Assessment', 'Routines'];
-
-    var rating = [1, 3, 2, 4, 2];
+    var dollars = [213,209,190,179,156,209,190,179,213,209,190,179,156,209,190,190];
 
     var colors = ['#0000b4','#0082ca','#0094ff','#0d4bcf','#0066AE','#074285','#00187B','#285964','#405F83','#416545','#4D7069','#6E9985','#7EBC89','#0283AF','#79BCBF','#99C19E'];
 
-    var grid = d3.range(5).map(function(i){
-      return {'x1':0,'y1':0,'x2':0,'y2':470};
+    var grid = d3.range(25).map(function(i){
+      return {'x1':0,'y1':0,'x2':0,'y2':480};
     });
 
     var tickVals = grid.map(function(d,i){
-      if(i>0){ return i; }
-      else if(i===0){ return "5";}
+      if(i>0){ return i*10; }
+      else if(i===0){ return "100";}
     });
 
     var xscale = d3.scale.linear()
-            .domain([0, 5])
+            .domain([10,250])
             .range([0,722]);
 
     var yscale = d3.scale.linear()
-            .domain([0,categories.length ])
-            .range([0,300]);
+            .domain([0,categories.length])
+            .range([0,480]);
 
     var colorScale = d3.scale.quantize()
             .domain([0,categories.length])
@@ -66,7 +32,7 @@ var categories= ['Culture', 'Instructional Strageties', 'Engagement', 'Assessmen
     var grids = canvas.append('g')
               .attr('id','grid')
               .attr('transform','translate(150,10)')
-              // .selectAll('line')
+              .selectAll('line')
               .data(grid)
               .enter()
               .append('line')
@@ -87,12 +53,12 @@ var categories= ['Culture', 'Instructional Strageties', 'Engagement', 'Assessmen
       yAxis
         .orient('left')
         .scale(yscale)
-        .tickSize(1)
+        .tickSize(2)
         .tickFormat(function(d,i){ return categories[i]; })
         .tickValues(d3.range(17));
 
     var y_xis = canvas.append('g')
-              .attr("transform", "translate(150, 180)")
+              .attr("transform", "translate(150,0)")
               .attr('id','yaxis')
               .call(yAxis);
 
@@ -105,28 +71,28 @@ var categories= ['Culture', 'Instructional Strageties', 'Engagement', 'Assessmen
               .attr("transform", "translate(150,0)")
               .attr('id','bars')
               .selectAll('rect')
-              .data(rating)
+              .data(dollars)
               .enter()
               .append('rect')
-              .attr('height',50)
-              .attr({'x':0,'y':function(d,i){ return yscale(i)+160; }}) //this changes position of the bars starting at y = 0
+              .attr('height',19)
+              .attr({'x':0,'y':function(d,i){ return yscale(i)+19; }})
               .style('fill',function(d,i){ return colorScale(i); })
               .attr('width',function(d){ return 0; });
 
 
     var transit = d3.select("svg").selectAll("rect")
-                .data(rating)
+                .data(dollars)
                 .transition()
                 .duration(1000)
                 .attr("width", function(d) {return xscale(d); });
 
     var transitext = d3.select('#bars')
-              // .selectAll('text')
-              .data(rating)
+              .selectAll('text')
+              .data(dollars)
               .enter()
               .append('text')
-              .attr({'x':function(d) {return xscale(d)-100; },'y':function(d,i){ return yscale(i)+35; }})
-              .text(function(d){ return d; }).style({'fill':'#fff','font-size':'14px'});
+              .attr({'x':function(d) {return xscale(d)-200; },'y':function(d,i){ return yscale(i)+35; }})
+              .text(function(d){ return d+"$"; }).style({'fill':'#fff','font-size':'14px'});
 
 
-</script>
+

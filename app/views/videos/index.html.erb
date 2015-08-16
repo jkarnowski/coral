@@ -1,9 +1,13 @@
-<h1 class="loginfish">All videos</h1>
-<div>
-  <% @videos.each do |video| %>
-    <% youtube_id = video.embedded_url[/(=[\d\D]{5,})/].slice(1..-1) %>
-    <div class="video-container">
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= youtube_id %>" frameborder="0" allowfullscreen></iframe>
-    </div>
-  <% end %>
-</div>
+<h1>All videos</h1>
+<% @videos.each do |video| %>
+  <% url = video.embedded_url || "" %>
+  <% temp = url[/(=[\d\D]{5,})/] || ""%>
+
+  <% youtube_id = temp.slice(1..-1) %>
+  <div class="video-container">
+  <%= link_to video.title, video_path(video.id) %>
+
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= video.youtube_id %>" frameborder="0" allowfullscreen></iframe><br>
+    <p><%= video.teacher.subject + " | " + video.teacher.grade_level %></p>
+  </div>
+<% end %>
