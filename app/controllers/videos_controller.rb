@@ -4,7 +4,6 @@ class VideosController < ApplicationController
 
   def index
     @videos = Video.all
-    @videos = @videos.sort_by {|obj| obj.teacher.grade_level}
     # videos.each do |video|
     #   @youtube_id = video.embedded_url[/(=[\d\D]{5,})/].slice(1..-1)
     # end
@@ -22,7 +21,6 @@ class VideosController < ApplicationController
   def sorted_by_subject
     @videos = Video.all
     @videos = @videos.sort_by {|obj| obj.teacher.subject}
-    p 'GOT TO SORTed BY SUB'
     render :index
 
   end
@@ -30,7 +28,6 @@ class VideosController < ApplicationController
   def sorted_by_grade_level
     @videos = Video.all
     @videos = @videos.sort_by {|obj| obj.teacher.grade_level}
-    p 'got to sort by graade'
     render :index
   end
 
@@ -46,6 +43,12 @@ class VideosController < ApplicationController
       )
     redirect_to "/teachers/#{current_user.id}"
   end
+
+  def destroy
+    Video.find(params[:id]).destroy
+    redirect_to "/teachers/#{current_user.id}"
+  end
+
 
 
 
