@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  resources :videos
+  resources :videos do
+    resources :feedbacks
+  end
+
   resources :teachers
 
   root 'teacher#index'
