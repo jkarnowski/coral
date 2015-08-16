@@ -1,5 +1,5 @@
 class TeachersController < ApplicationController
-
+  include SessionsHelper
   def index
   end
 
@@ -15,6 +15,17 @@ class TeachersController < ApplicationController
     @teacher = Teacher.create(teacher_params)
     session[:id] = @teacher.id
     redirect_to @teacher
+  end
+
+  def edit
+
+  end
+
+  def update
+    teacher = Teacher.find_by(id: current_user.id)
+    teacher.update_attributes(name: params[:teachers][:name], bio: params[:teachers][:bio], subject: params[:teachers][:subject], grade_level: params[:teachers][:grade_level])
+    teacher.save
+    redirect_to "/teachers/#{current_user.id}"
   end
 
   private
