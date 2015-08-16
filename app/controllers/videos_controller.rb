@@ -3,5 +3,6 @@ class VideosController < ApplicationController
   end
 
   def show
+    @rubric = Rubric.new
   end
 end

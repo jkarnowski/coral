@@ -5,6 +5,11 @@ Rails.application.routes.draw do
 
   resources :teachers
 
+  resources :rubric do
+    resources :criterion
+  end
+
+
   root 'teacher#index'
 
   # The priority is based upon order of creation: first created -> highest priority.

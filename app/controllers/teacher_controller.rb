@@ -6,7 +6,7 @@ class TeacherController < ApplicationController
   end
 
   def create
-    Teacher.create(teacher_params)
+    @teacher = Teacher.create(teacher_params)
   end
 
   private
