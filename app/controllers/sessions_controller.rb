@@ -3,6 +3,9 @@ class SessionsController < ApplicationController
   def new
   end
 
+  # def show
+  # end
+
   def create
     @teacher = Teacher.find_by(email: params[:sessions][:email])
     session[:id] = @teacher.id
@@ -10,7 +13,8 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    p "you got me"
     session[:id] = nil
-    redirect_to "/sessions/new"
+    redirect_to root_path
   end
 end

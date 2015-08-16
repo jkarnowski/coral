@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  controller :sessions do
+    post 'logout' => :destroy
+  end
+
   resources :videos
   resources :feedbacks
 
