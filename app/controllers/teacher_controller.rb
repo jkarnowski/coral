@@ -1,6 +1,5 @@
 class TeacherController < ApplicationController
   def index
-
   end
 
   def show
