@@ -1,0 +1,26 @@
+<% provide(:title, "Sign Up") %>
+<h1>Create a new account</h1>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(:teacher, url: "/teachers/create") do |f| %>
+
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control' %>
+
+    <%= f.label :email %>
+    <%= f.email_field :email, class: 'form-control' %>
+
+    <%= f.label :subject %>
+    <%= f.text_field :subject, class: 'form-control' %>
+
+    <%= f.label :grade_level %>
+    <%= f.text_field :grade_level, class: 'form-control' %>
+
+    <%= f.label :password %>
+    <%= f.password_field :password, class: 'form-control' %>
+
+    <%= f.submit "Sign Up", class: "btn btn-primary" %>
+
+    <% end %>
+  </div>
+</div>

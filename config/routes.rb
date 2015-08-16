@@ -6,20 +6,15 @@ Rails.application.routes.draw do
 
   get 'sessions/new'
 
-  resources :videos do
-    resources :feedbacks
-  end
-
   resources :videos
   resources :feedbacks
-
 
   resources :teachers
 
   resources :rubric
   resources :criterion
 
-  
+
 
   root 'teacher#index'
 
