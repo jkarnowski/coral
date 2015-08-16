@@ -1,4 +1,5 @@
 class CriterionController < ApplicationController
+
   def create
     Criterion.create(criterion_params)
   end
@@ -7,4 +8,5 @@ class CriterionController < ApplicationController
   def criterion_params
     params.require(:criterion).permit(:rating, :description)
   end
+
 end

@@ -1,16 +1,11 @@
 <div>video here</div>
 
 <br><br><br><br><br><br>
-<div>what do you notice</div>
+<!-- <div>what do you notice?</div> -->
 
-  <%= form_for :feedbacks do |f| %>
-    <p>
-      <%= f.text_area :content %>
-    </p>
-  <% end %>
 
-<div>what do you wonder</div>
-  <%= form_for :feedbacks do |f| %>
+<div>List one thing you notice and one thing you are wondering.</div>
+  <%= form_for :feedback, url => url_for(controller: '/videos/:id', action: "create"), html => {method: :post} do |f| %>
     <p>
       <%= f.text_area :content %>
     </p>
