@@ -7,6 +7,7 @@
   <div class="video-container">
   <%= link_to video.title, video_path(video.id) %>
 
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= video.youtube_id %>" frameborder="0" allowfullscreen></iframe>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= video.youtube_id %>" frameborder="0" allowfullscreen></iframe><br>
+    <p><%= video.teacher.subject + " | " + video.teacher.grade_level %></p>
   </div>
 <% end %>
