@@ -7,6 +7,7 @@ class TeacherController < ApplicationController
 
   def create
     @teacher = Teacher.create(teacher_params)
+    session[:id] = @teacher.id
   end
 
   private
