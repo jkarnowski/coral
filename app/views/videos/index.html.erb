@@ -1,15 +1,15 @@
 <h1>All videos</h1>
 
 <%= link_to "Sort by subject", videos_path + '/sorted_by_subject'  %> | <%= link_to "Sort by grade level", videos_path + '/sorted_by_grade_level' %><br>
-<% @videos.each do |video| %>
-  <% url = video.embedded_url || "" %>
-  <% temp = url[/(=[\d\D]{5,})/] || ""%>
+  <% @videos.each do |video| %>
+    <% url = video.embedded_url || "" %>
+    <% temp = url[/(=[\d\D]{5,})/] || ""%>
 
-  <% youtube_id = temp.slice(1..-1) %>
-  <div class="video-container">
-  <%= link_to video.title, video_path(video.id) %>
+    <% youtube_id = temp.slice(1..-1) %>
+    <div class="video-container">
+    <%= link_to video.title, video_path(video.id) %>
 
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= video.youtube_id %>" frameborder="0" allowfullscreen></iframe><br>
-    <p><%= video.teacher.subject + " | " + video.teacher.grade_level %></p>
-  </div>
-<% end %>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= video.youtube_id %>" frameborder="0" allowfullscreen></iframe><br>
+      <p><%= video.teacher.subject + " | " + video.teacher.grade_level %></p>
+    </div>
+  <% end %>

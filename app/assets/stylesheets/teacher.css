@@ -12,3 +12,16 @@
   background-size: cover;
 }
 
+.center-this-plz {
+  border: 5px solid green;
+  text-align: center;
+  display: inline-block;
+  width: 100%;
+}
+
+.move {
+ border: 1px solid blue;
+ text-align: left;
+ margin-left: 10%;
+ display: inline-block;
+}
