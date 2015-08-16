@@ -1,9 +1,11 @@
 class TeachersController < ApplicationController
+
   def index
   end
 
   def show
-    @teacher = Teacher.find(params[:id])
+    @teacher = Teacher.find_by(id: params[:id])
+    @videos = @teacher.videos
   end
 
   def new
@@ -11,7 +13,7 @@ class TeachersController < ApplicationController
 
   def create
     @teacher = Teacher.create(teacher_params)
-
+    session[:id] = @teacher.id
     redirect_to @teacher
   end
 
