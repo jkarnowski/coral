@@ -1,0 +1,28 @@
+<!-- create a new video -->
+<!-- Testing out using URLs to embed videos -->
+
+<%= form_for @video, url: {action: "new"}, method: :get do |f| %>
+	<%= f.label :embedded_url %>
+	<%= f.text_field :embedded_url %>
+	<%= f.submit "Add" %>
+<% end %>
+<!-- 
+<form class="add-url" action="/videos/new" method="GET">
+	<label for="embedded_url">Add Video</label>
+	<input type="text" name="embedded_url" id="embedded_url" placeholder="Youtube Embed URL" style="width: 200px;">
+	<input type="submit" value="Add">
+</form> -->
+
+<br>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/<%= @youtube_id %>" frameborder="0" allowfullscreen></iframe>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script>
+// addButtonListener();
+// var addButtonListener = function(){
+// 	$("form.add-url").on("submit", function(){
+// 		var wholeUrl = $("#video_embedded_url").val()
+// 	})
+// }
+</script>
