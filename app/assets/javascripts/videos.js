@@ -1,56 +1,24 @@
+var categories= ['','Accessories', 'Audiophile', 'Camera & Photo', 'Cell Phones', 'Computers','eBook Readers','Gadgets','GPS & Navigation','Home Audio','Office Electronics','Portable Audio','Portable Video','Security & Surveillance','Service','Television & Video','Car & Vehicle'];
 
-<div style="width: 100%;">
-  <div class="col-md-8"><h1>Welcome  <%= @teacher.name %>!</h1>
-    <div class="row">
-      <div class="col-md-6"><p>Bio: <%= @teacher.bio %></p></div>
-      <div class="col-md-6"><p>Logged in as: <%= @teacher.email %></p></div>
-      <div class="col-md-6"><p>Grade: <%= @teacher.grade_level %></p></div>
-      <div class="col-md-6"><p>Subject Expertise: <%= @teacher.subject %></p></div>
-    </div>
-  </div>
-  <div style="text-align: right;" class="col-md-4"><%= button_to "Edit Profile", edit_teacher_path, :class => "btn btn-default", :method => :get %></div>
-</div>
-<br>
-<br>
-<br>
-<div style="margin-top: 50px; display: inline-block;">
-<%= button_to "Add New Video", new_video_path, :class => "btn btn-default", :method => :get %>
-<h2>My Videos</h2>
-
-
-<% @videos.each do |video| %>
-  <% youtube_id = video.embedded_url[/(=[\d\D]{5,})/].slice(1..-1) %>
-  <div class="video-container">
-    <iframe width="200"  src="https://www.youtube.com/embed/<%= youtube_id %>" frameborder="0" allowfullscreen></iframe>
-  </div>
-<% end %>
-</div>
-
-<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-<div id="wrapper">
-</div>
-<script>
-var categories= ['Culture', 'Instructional Strageties'];
-
-    var rating = [1, 2, 3];
+    var dollars = [213,209,190,179,156,209,190,179,213,209,190,179,156,209,190,190];
 
     var colors = ['#0000b4','#0082ca','#0094ff','#0d4bcf','#0066AE','#074285','#00187B','#285964','#405F83','#416545','#4D7069','#6E9985','#7EBC89','#0283AF','#79BCBF','#99C19E'];
 
-    var grid = d3.range(5).map(function(i){
-      return {'x1':0,'y1':0,'x2':0,'y2':470};
+    var grid = d3.range(25).map(function(i){
+      return {'x1':0,'y1':0,'x2':0,'y2':480};
     });
 
     var tickVals = grid.map(function(d,i){
-      if(i>0){ return i; }
-      else if(i===0){ return "5";}
+      if(i>0){ return i*10; }
+      else if(i===0){ return "100";}
     });
 
     var xscale = d3.scale.linear()
-            .domain([0, 5])
+            .domain([10,250])
             .range([0,722]);
 
     var yscale = d3.scale.linear()
-            .domain([0,categories.length - 1])
+            .domain([0,categories.length])
             .range([0,480]);
 
     var colorScale = d3.scale.quantize()
@@ -127,4 +95,4 @@ var categories= ['Culture', 'Instructional Strageties'];
               .text(function(d){ return d+"$"; }).style({'fill':'#fff','font-size':'14px'});
 
 
-</script>
+
