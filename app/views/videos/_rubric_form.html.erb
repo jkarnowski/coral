@@ -1,4 +1,5 @@
-<%= form_for :criterion, :url => url_for(controller: '/rubric/:rubric_id/criterion', action: 'create'), :html => {:method => :post} do |f| %>
+
+<%= form_for :criterion, :url => (controller: 'criterion(@rubric.criterion)', action: 'create'), :html => {:method => :post} do |f| %>
 
   <%= f.label :culture %><br />
   <%= f.label :rating, "1"  %>
