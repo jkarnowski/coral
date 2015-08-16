@@ -9,6 +9,12 @@ class FeedbacksController < ApplicationController
 
   def create
     Feedback.create(feedback_params)
-    # redirect_to
+   redirect_to :back
+  end
+
+    private
+
+  def feedback_params
+    params.require(:feedbacks).permit(:content)
   end
 end
