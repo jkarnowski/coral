@@ -1,0 +1,34 @@
+<%= form_for :criterion, :url => url_for(controller: 'criterion', action: 'create'), :html => {:method => :post} do |f| %>
+
+  <%= f.label :culture %><br />
+  <%= f.label :rating, "1"  %>
+  <%= f.radio_button :rating, 1  %>
+  <%= f.label :rating, "2" %>
+  <%= f.radio_button  :rating, 2 %>
+  <%= f.label :rating, "3"  %>
+  <%= f.radio_button :rating, 3 %>
+  <%= f.label :rating, "4"  %>
+  <%= f.radio_button  :rating, 4 %>
+  <%= f.label :rating, "5"  %>
+  <%= f.radio_button :rating, 5 %>
+  <%= f.hidden_field :description, value: "Culture" %>
+  <%= f.submit %>
+
+<% end %>
+
+<%= form_for :criterion, :url => url_for(controller: 'criterion', action: 'create'), :html => {:method => :post} do |f| %>
+  <%= f.label :instructional_strategies %><br />
+  <%= f.label :rating, "1" %>
+  <%= f.radio_button :rating, 1 %>
+  <%= f.label :rating, "2" %>
+  <%= f.radio_button  :rating, 2 %>
+  <%= f.label :rating, "3" %>
+  <%= f.radio_button :rating, 3 %>
+  <%= f.label :rating, "4" %>
+  <%= f.radio_button  :rating, 4 %>
+  <%= f.label :rating, "5" %>
+  <%= f.radio_button :rating, 5 %>
+  <% f.hidden_field :instructional_strategies, value: "Criterion" %>
+  <%= f.submit %>
+
+<% end %>

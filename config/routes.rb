@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   end
 
   resources :teachers
+  resources :feedback
+  resources :rubric
+  resources :criterion
 
   root 'teacher#index'
 
