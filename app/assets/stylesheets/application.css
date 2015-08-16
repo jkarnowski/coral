@@ -24,3 +24,9 @@ html {
 		-moz-box-sizing: inherit;
 		box-sizing: inherit;
 }
+
+.video-container {
+  padding: 1em;
+  width: 40%;
+  display: inline-block;
+}

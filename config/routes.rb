@@ -6,22 +6,17 @@ Rails.application.routes.draw do
 
   get 'sessions/new'
 
-  resources :videos do
-    resources :feedbacks
-  end
-
   resources :videos
   resources :feedbacks
-
 
   resources :teachers
 
   resources :rubric
   resources :criterion
 
-  
 
-  root 'teacher#index'
+
+  root 'teachers#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

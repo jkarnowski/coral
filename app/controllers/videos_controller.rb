@@ -1,6 +1,11 @@
 class VideosController < ApplicationController
 	include VideosHelper
   def index
+    @videos = Video.all
+    # videos.each do |video|
+    #   @youtube_id = video.embedded_url[/(=[\d\D]{5,})/].slice(1..-1)
+    # end
+    # @youtube_id
   end
 
   def show
@@ -13,7 +18,7 @@ class VideosController < ApplicationController
     video_params = params[:video]
 
   	@video = Video.create(
-  		teacher_id: session[:id], 
+  		teacher_id: session[:id],
   		embedded_url: video_params[:embedded_url]
   		)
   	# Working on using a module here from videos_helper
