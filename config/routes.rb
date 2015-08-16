@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'sessions/destroy'
+
+  get 'sessions/create'
+
+  get 'sessions/new'
+
   resources :videos do
     resources :feedbacks
   end
@@ -9,6 +15,7 @@ Rails.application.routes.draw do
     resources :criterion
   end
 
+  
 
   root 'teacher#index'
 

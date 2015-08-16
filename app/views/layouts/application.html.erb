@@ -7,7 +7,6 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -22,7 +21,7 @@
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="#">Login</a></li>
+        <li><a href="/sessions/new">Login</a></li>
         <li><a href="#">Sign up</a></li>
         <li><a href="#">My Profile</a></li>
         <li><a href="#">All Videos</a></li>
@@ -33,6 +32,7 @@
     </div>
   </div>
 </nav>
+<body>
 <%= yield %>
 
 </body>
