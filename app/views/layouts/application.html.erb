@@ -8,6 +8,16 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 
   <%= csrf_meta_tags %>
+  <link href='http://fonts.googleapis.com/css?family=Rubik:300' rel='stylesheet' type='text/css'>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <style>
+  .carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width: 70%;
+      margin: auto;
+  }
+  </style>
 </head>
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
@@ -39,6 +49,7 @@
     </div>
   </div>
 </nav>
+
 <body>
 <%= yield %>
 </body>
