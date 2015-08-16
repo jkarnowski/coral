@@ -1,5 +1,5 @@
 
-<%= form_for :criterion, :url => url_for(controller: 'criterion', action: 'create'), :html => {:method => :post} do |f| %>
+<%= form_for :criterion, :url => url_for(controller: 'criterion', action: 'create'), :html => {:method => :post, :id => "form1"} do |f| %>
 
   <%= f.label :culture %><br />
   <%= f.label :rating, "1"  %>
@@ -13,11 +13,11 @@
   <%= f.label :rating, "5"  %>
   <%= f.radio_button :rating, 5 %>
   <%= f.hidden_field :description, value: "Culture" %>
-  <%= f.submit %>
+  <%= f.submit "data-no-turbolink", :id => 'button_submit'%>
 
 <% end %>
 
-<%= form_for :criterion, :url => url_for(controller: 'criterion', action: 'create'), :html => {:method => :post} do |f| %>
+<%= form_for :criterion, :url => url_for(controller: 'criterion', action: 'create'), :html => {:method => :post, :id => "form2" } do |f| %>
   <%= f.label :instructional_strategies %><br />
   <%= f.label :rating, "1" %>
   <%= f.radio_button :rating, 1 %>
@@ -30,6 +30,6 @@
   <%= f.label :rating, "5" %>
   <%= f.radio_button :rating, 5 %>
   <% f.hidden_field :instructional_strategies, value: "Criterion" %>
-  <%= f.submit %>
+  <%= f.submit "data-no-turbolink", :id => 'button_submit'%>
 
 <% end %>
