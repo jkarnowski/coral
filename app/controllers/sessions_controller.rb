@@ -13,7 +13,6 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    p "you got me"
     session[:id] = nil
     redirect_to root_path
   end
