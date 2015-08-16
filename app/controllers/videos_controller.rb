@@ -4,6 +4,8 @@ class VideosController < ApplicationController
   end
 
   def show
+    @video = Video.find_by(id: params[:id])
+    @youtube_id = @video.embedded_url[/(=[\d\D]{5,})/].slice(1..-1)
     @rubric = Rubric.new
   end
 
