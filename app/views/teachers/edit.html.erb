@@ -1,0 +1,24 @@
+<h1>Edit Your Profile</h1>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+
+    <%= form_for :teachers, :url => url_for(controller: "/teachers", action: "update"), :html => {:method => :patch} do |f| %>
+
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control' %>
+
+    <%= f.label :bio %>
+    <%= f.text_area :bio, class: 'form-control' %>
+
+    <%= f.label :subject %>
+    <%= f.text_field :subject, class: 'form-control' %>
+
+    <%= f.label :grade_level %>
+    <%= f.text_field :grade_level, class: 'form-control' %>
+
+    <%= f.submit "Update", class: "btn btn-primary" %>
+
+    <% end %>
+  </div>
+</div>
+
