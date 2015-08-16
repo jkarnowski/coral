@@ -1,0 +1,2 @@
+module MetafeedbackHelper
+end

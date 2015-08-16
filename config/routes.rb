@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :videos
 
   resources :feedbacks
+  resources :metafeedback, only: [:new, :create]
 
   resources :teachers
 
@@ -20,7 +21,7 @@ Rails.application.routes.draw do
 
   resources :sessions
 
-  root 'teachers#index'
+  root 'videos#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
