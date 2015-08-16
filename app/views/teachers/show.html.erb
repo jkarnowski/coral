@@ -1,7 +1,19 @@
-<h1>This is your profile page!</h1>
-<h2>Welcome  <%= @teacher.name %>!</h2>
-<h3>Is this your email? <%= @teacher.email %></h3>
-<h2>Add a Video</h2>
+
+<div style="width: 100%;">
+  <div class="col-md-8"><h1>Welcome  <%= @teacher.name %>!</h1>
+    <div class="row">
+      <div class="col-md-6"><p>Bio: <%= @teacher.bio %></p></div>
+      <div class="col-md-6"><p>Logged in as: <%= @teacher.email %></p></div>
+      <div class="col-md-6"><p>Grade: <%= @teacher.grade_level %></p></div>
+      <div class="col-md-6"><p>Subject Expertise: <%= @teacher.subject %></p></div>
+    </div>
+  </div>
+  <div style="text-align: right;" class="col-md-4"><%= button_to "Edit Profile", edit_teacher_path, :class => "btn btn-default", :method => :get %></div>
+</div>
+<br>
+<br>
+<br>
+<div style="margin-top: 50px; display: inline-block;">
 <%= button_to "Add New Video", new_video_path, :class => "btn btn-default", :method => :get %>
 <h2>My Videos</h2>
 
@@ -11,3 +23,4 @@
     <iframe width="200"  src="https://www.youtube.com/embed/<%= youtube_id %>" frameborder="0" allowfullscreen></iframe>
   </div>
 <% end %>
+</div>
