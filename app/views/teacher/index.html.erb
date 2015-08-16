@@ -16,6 +16,7 @@
         if (authResult['access_token']) {
           // Successfully authorized
           document.getElementById('signinButton').setAttribute('style', 'display: none');
+          window.location.href = '/videos';
         } else if (authResult['error']) {
           // There was an error.
           // Possible error codes:
