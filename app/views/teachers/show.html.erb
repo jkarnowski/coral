@@ -30,7 +30,7 @@
 <div id="wrapper">
 </div>
 <script>
-var categories= ['Culture', 'Instructional Strageties'];
+var categories= ['Culture', 'Instructional Strageties', 'Culture', 'Instructional Strageties'];
 
     var rating = [1, 2, 3];
 
@@ -90,7 +90,7 @@ var categories= ['Culture', 'Instructional Strageties'];
         .tickValues(d3.range(17));
 
     var y_xis = canvas.append('g')
-              .attr("transform", "translate(150,0)")
+              .attr("transform", "translate(150, 0)")
               .attr('id','yaxis')
               .call(yAxis);
 
@@ -106,8 +106,8 @@ var categories= ['Culture', 'Instructional Strageties'];
               .data(dollars)
               .enter()
               .append('rect')
-              .attr('height',19)
-              .attr({'x':0,'y':function(d,i){ return yscale(i)+19; }})
+              .attr('height',50)
+              .attr({'x':0,'y':function(d,i){ return yscale(i)-50; }}) //this changes position of the bars starting at y = 0
               .style('fill',function(d,i){ return colorScale(i); })
               .attr('width',function(d){ return 0; });
 
