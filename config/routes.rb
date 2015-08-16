@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   get 'sessions/destroy'
 
-  get 'sessions/create'
+  post 'sessions/create'
 
   get 'sessions/new'
 
@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   resources :rubric
   resources :criterion
 
-
+  resources :session
 
   root 'teachers#index'
 
