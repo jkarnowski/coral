@@ -1,4 +1,5 @@
 class TeachersController < ApplicationController
+
   def index
   end
 
@@ -11,6 +12,7 @@ class TeachersController < ApplicationController
 
   def create
     @teacher = Teacher.create(teacher_params)
+    session[:id] = @teacher.id
     redirect_to @teacher
   end
 
