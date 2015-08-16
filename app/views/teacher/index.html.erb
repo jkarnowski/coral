@@ -16,7 +16,7 @@
         if (authResult['access_token']) {
           // Successfully authorized
           document.getElementById('signinButton').setAttribute('style', 'display: none');
-          window.location.href = '/videos';
+          window.location.href = 'https://www.google.com';
         } else if (authResult['error']) {
           // There was an error.
           // Possible error codes:
@@ -38,7 +38,5 @@
         data-scope="https://www.googleapis.com/auth/plus.login">
       </span>
     </span>
-
   </body>
 </html>
-
