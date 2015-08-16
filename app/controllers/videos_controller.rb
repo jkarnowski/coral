@@ -11,7 +11,7 @@ class VideosController < ApplicationController
 
   def show
     @video = Video.find_by(id: params[:id])
-    url = @video.embedded_url || ""
+    # url = @video.embedded_url || ""
     # temp = url[/(=[\d\D]{5,})/] || ""
     # @youtube_id = temp.slice(1..-1)
     @rubric = Rubric.new
