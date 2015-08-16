@@ -1,4 +1,6 @@
 <h1>All videos</h1>
+
+<%= link_to "Sort by subject", videos_path + '/sorted_by_subject'  %> | <%= link_to "Sort by grade level", videos_path + '/sorted_by_grade_level' %><br>
 <% @videos.each do |video| %>
   <% url = video.embedded_url || "" %>
   <% temp = url[/(=[\d\D]{5,})/] || ""%>
