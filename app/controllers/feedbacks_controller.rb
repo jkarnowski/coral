@@ -1,4 +1,5 @@
 class FeedbacksController < ApplicationController
+
   def index
     @feedbacks = Feedback.all
   end
@@ -8,6 +9,8 @@ class FeedbacksController < ApplicationController
   end
 
   def create
+    p "*" * 100
+    p params
     Feedback.create(feedback_params)
     redirect_to :back
   end
@@ -15,6 +18,6 @@ class FeedbacksController < ApplicationController
     private
 
   def feedback_params
-    params.require(:feedbacks).permit(:content)
+    params.require(:feedback).permit(:content, :teacher_id, :video_id)
   end
 end
