@@ -4,6 +4,8 @@ class TeachersController < ApplicationController
   end
 
   def show
+    p params
+    p "*" * 100
     @teacher = Teacher.find_by(id: params[:id])
     @videos = @teacher.videos
   end
@@ -22,6 +24,8 @@ class TeachersController < ApplicationController
   end
 
   def update
+    p params
+    p "^" * 100
     teacher = Teacher.find_by(id: current_user.id)
     teacher.update_attributes(name: params[:teachers][:name], bio: params[:teachers][:bio], subject: params[:teachers][:subject], grade_level: params[:teachers][:grade_level])
     teacher.save
