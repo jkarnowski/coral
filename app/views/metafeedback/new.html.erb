@@ -1,5 +1,6 @@
 <div class="container">
-  <div>Please rate one pieces of feedback.</div><br>
+  <div class="bigger">
+  <h1 class="headerr">Please rate one pieces of feedback.</h1><br>
   <% p @feedback.id %>
   <p><%= @feedback.content %></p>
   <%= form_for :metafeedback, :url => url_for(controller: 'metafeedback', action: "create"), :html => {:method => :post, :class => "form_group"} do |f| %>
@@ -19,10 +20,12 @@
     <%= f.label :kind, "False" %>
     <%= f.radio_button  :kind, false %>
     <%= f.hidden_field :feedback_id, value: @feedback.id %>
+    <br>
     <%= f.submit %>
   <% end %>
 
   </p>
+</div>
 </div>
 
 
