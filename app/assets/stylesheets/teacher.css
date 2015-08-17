@@ -1,5 +1,4 @@
 
-
 #terrence {
   font-size: 3em;
   text-align: center;
@@ -54,7 +53,6 @@
   color: #CC3300;
 }
 
-
 .fishy {
  color: #CC3300;
 }
@@ -75,4 +73,15 @@
 
 #white-out{
   color: white;
+}
+
+.texttt {
+  color: gray;
+  padding: 20px;
+  text-align: center;
+}
+
+.spacee {
+  width: 100%;
+  height: 50px;
 }
