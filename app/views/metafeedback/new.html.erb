@@ -1,0 +1,25 @@
+  <div>Please rate one pieces of feedback.</div><br>
+  <% p @feedback.id %>
+  <p><%= @feedback.content %></p>
+  <%= form_for :metafeedback, :url => url_for(controller: 'metafeedback', action: "create"), :html => {:method => :post} do |f| %>
+    <%= f.label :Specific %><br>
+    <%= f.label :specific, "True"  %>
+    <%= f.radio_button :specific, true  %>
+    <%= f.label :specific, "False" %>
+    <%= f.radio_button  :specific, false %> <br>
+    <%= f.label :Actionable %> <br>
+    <%= f.label :actionable, "True"  %>
+    <%= f.radio_button :actionable, true  %>
+    <%= f.label :actionable, "False" %>
+    <%= f.radio_button  :actionable, false %><br>
+    <%= f.label :Kind %> <br>
+    <%= f.label :kind, "True"  %>
+    <%= f.radio_button :kind, true  %>
+    <%= f.label :kind, "False" %>
+    <%= f.radio_button  :kind, false %>
+    <%= f.hidden_field :feedback_id, value: @feedback.id %>
+    <%= f.submit %>
+  <% end %>
+
+  </p>
+
