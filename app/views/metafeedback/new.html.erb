@@ -1,7 +1,8 @@
+<div class="container">
   <div>Please rate one pieces of feedback.</div><br>
   <% p @feedback.id %>
   <p><%= @feedback.content %></p>
-  <%= form_for :metafeedback, :url => url_for(controller: 'metafeedback', action: "create"), :html => {:method => :post} do |f| %>
+  <%= form_for :metafeedback, :url => url_for(controller: 'metafeedback', action: "create"), :html => {:method => :post, :class => "form_group"} do |f| %>
     <%= f.label :Specific %><br>
     <%= f.label :specific, "True"  %>
     <%= f.radio_button :specific, true  %>
@@ -22,4 +23,6 @@
   <% end %>
 
   </p>
+</div>
+
 
