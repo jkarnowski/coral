@@ -25,25 +25,37 @@
   </p>
   <% end %>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
+
+
   <div class="col-md-6">
     <% @feedbacks.each do |feedback|  %>
+      <% @kind = true %>
       <% @evaluator = Teacher.find_by(id: feedback.teacher_id) %>
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <!-- <h3 class="panel-title"><%# @evaluator.name %><span style="float: right;"><%# feedback.created_at %></span></h3> -->
-          <h3 class="panel-title"><%= @evaluator.name %><span style="float: right;" id="<%= feedback.id %>"></span></h3>
-          <script type="text/javascript">
-          var date = '<%= feedback.created_at %>';
-              date = date.substring(0, date.length - 4),
-              formattedDate = moment(date).fromNow();
-          var dateSpan = document.getElementById('<%= feedback.id %>'),
-              text = document.createTextNode(formattedDate);
-              dateSpan.appendChild(text);
-          </script>
-        </div>
-        <div class="panel-body">
-          <%= feedback.content %>
-        </div>
+        <% metafeedbacks = feedback.metafeedbacks.to_a %>
+        <% metafeedbacks[0 ].each do |metafeedback| %>
+          <% p metafeedback %>
+          <% unless metafeedback.kind == true || feedback.metafeedbacks.kind == nil %>
+            <% @kind = false %>
+          <% end %>
+        <% end %>
+      <% end %>
+      <% if @kind %>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <!-- <h3 class="panel-title"><%# @evaluator.name %><span style="float: right;"><%# feedback.created_at %></span></h3> -->
+            <h3 class="panel-title"><%= @evaluator.name %><span style="float: right;" id="<%= feedback.id %>"></span></h3>
+            <script type="text/javascript">
+            var date = '<%= feedback.created_at %>';
+            date = date.substring(0, date.length - 4),
+            formattedDate = moment(date).fromNow();
+            var dateSpan = document.getElementById('<%= feedback.id %>'),
+            text = document.createTextNode(formattedDate);
+            dateSpan.appendChild(text);
+            </script>
+          </div>
+          <div class="panel-body">
+            <%= feedback.content %>
+          </div>
       </div>
     <% end %>
   </div>

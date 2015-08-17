@@ -14,6 +14,17 @@ class VideosController < ApplicationController
     @video = Video.find_by(id: params[:id])
     @rubric = Rubric.new
     @feedbacks = @video.feedbacks
+    @metafeedbacks = Metafeedback.all
+    @relevent_metafeedback = []
+
+    @feedbacks.each do |feedback|
+      @metafeedbacks.each do |metafeedback|
+        if metafeedback.feedback_id == feedback.id
+          @relevent_metafeedback << metafeedback
+        end
+      end
+    end
+
     p "_" * 100
     p @feedbacks
   end
