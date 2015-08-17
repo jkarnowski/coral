@@ -21,7 +21,7 @@ end
   number = Video.create({
     embedded_url: "https://www.youtube.com/watch?v=lWA2pjMjpBs",
     title: Faker::Lorem.sentence,
-    youtube_id: "xWNzZYCOyEE",
+    youtube_id: "lWA2pjMjpBs",
     teacher_id: number
   })
 end
