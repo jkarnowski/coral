@@ -1,29 +1,28 @@
 <div class="move">
   <div>
-    <div class="col-md-8"><h1>Welcome  <%= @teacher.name %>!</h1>
+    <div class="col-md-8"><h1 class="fishy">Welcome  <%= @teacher.name %>!</h1>
       <div class="row">
-        <div><p>Bio: <%= @teacher.bio %></p></div>
-        <div><p>Logged in as: <%= @teacher.email %></p></div>
-        <div><p>Grade: <%= @teacher.grade_level %></p></div>
-        <div><p>Subject Expertise: <%= @teacher.subject %></p></div>
+        <div class="profilee"><%= image_tag ("fish-and-coral.jpg"), :size => "200x200" %></div>
+        <div class="textt"><p><span class="orange">Bio:</span> <%= @teacher.bio %></p></div>
+        <div class="textt"><p><span class="orange">Logged in as:</span> <%= @teacher.email %></p></div>
+        <div class="textt"><p><span class="orange">Grade:</span> <%= @teacher.grade_level %></p></div>
+        <div class="textt"><p><span class="orange">Subject Expertise:</span> <%= @teacher.subject %></p></div>
       </div>
     </div>
     <div style="text-align: right;" class="col-md-4"><%= button_to "Edit Profile", edit_teacher_path, :class => "btn btn-default", :method => :get %></div>
   </div>
 </div>
 
-<br>
-<br>
-<br>
-<br>
+<div class="gimme-space"></div>
 
 <div class="center-this-plz">
   <div>
   <%= button_to "Add New Video", new_video_path, :class => "btn btn-default", :method => :get %>
-  <h2>My Videos</h2>
+  <h1 class="fishyy">My Videos</h2>
+    <div class="gimme-less-space"></div>
   <% @videos.each do |video| %>
     <div class="video-container">
-      <%= link_to video.title, video_path(video.id) %>
+      <%= link_to video.title, video_path(video.id), {:style => 'color: #FFFFFF'} %>
       <iframe width="200"  src="https://www.youtube.com/embed/<%= video.youtube_id %>" frameborder="0" allowfullscreen></iframe>
     </div>
   <% end %>
@@ -31,7 +30,11 @@
 </div>
 
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-<h1> Feedback </h1>
+
+<div class="gimme-space"></div>
+
+<div class="center-this-pl">
+<h1 class="fishy"> Feedback </h1>
 <div id="wrapper">
 </div>
 
@@ -136,3 +139,4 @@ var categories= ['Culture', 'Instructional Strageties', 'Engagement', 'Assessmen
 </script>
 
 
+</div>

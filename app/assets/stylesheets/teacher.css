@@ -1,3 +1,5 @@
+
+
 #terrence {
   font-size: 3em;
   text-align: center;
@@ -12,16 +14,65 @@
   background-size: cover;
 }
 
-.center-this-plz {
-  border: 5px solid green;
-  text-align: center;
-  display: inline-block;
-  width: 100%;
-}
-
 .move {
- border: 1px solid blue;
+ /*border: 1px solid blue;*/
  text-align: left;
  margin-left: 10%;
  display: inline-block;
+ background-color: white;
+ border-radius: 20px;
+ padding: 20px;
+}
+
+.center-this-plz {
+  /*border: 5px solid green;*/
+  text-align: center;
+  display: inline-block;
+  width: 100%;
+  background-color: #5c2040;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.center-this-pl {
+  /*border: 5px solid red;*/
+  text-align: center;
+  display: inline-block;
+  width: 100%;
+  background-color: white;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+
+.textt {
+  font-size: 20px;
+  color: gray;
+}
+
+.orange {
+  color: #CC3300;
+}
+
+
+.fishy {
+ color: #CC3300;
+}
+
+.fishyy {
+  color: white;
+}
+
+.gimme-space {
+  height: 200px;
+  width: 100%;
+}
+
+.gimme-less-space {
+  height: 50px;
+  width: 100%;
+}
+
+#white-out{
+  color: white;
 }
