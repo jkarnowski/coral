@@ -6,16 +6,16 @@
     <%= form_for :teachers, :url => url_for(controller: "/teachers", action: "update"), :html => {:method => :patch} do |f| %>
 
     <%= f.label :name %>
-    <%= f.text_field :name, class: 'form-control' %>
+    <%= f.text_field :name, class: 'form-control', value: current_user.name %>
 
     <%= f.label :bio %>
-    <%= f.text_area :bio, class: 'form-control' %>
+    <%= f.text_area :bio, class: 'form-control', value: current_user.bio ||= "" %>
 
     <%= f.label :subject %>
-    <%= f.text_field :subject, class: 'form-control' %>
+    <%= f.text_field :subject, class: 'form-control', value: current_user.subject ||= ""  %>
 
     <%= f.label :grade_level %>
-    <%= f.text_field :grade_level, class: 'form-control' %>
+    <%= f.text_field :grade_level, class: 'form-control', value: current_user.grade_level ||= "" %>
 
     <div class="spacee"></div>
 
