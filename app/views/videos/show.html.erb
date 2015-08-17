@@ -5,12 +5,12 @@
   <p><%= @video.teacher.subject + " | " + @video.teacher.grade_level %></p>
 
   <% if @video.teacher == current_user %>
-    <%= button_to "delete", class: "btn", { :controller => :videos,
+    <%= button_to "delete", { :controller => :videos,
                               :action => 'destroy'},
-                              :method => :delete %>
+                              :method => :delete, :class => "btn btn-primary" %>
   <% end %>
 
-
+<div class="space-maker" style="width: 100%; height: 50px;"></div>
     <%= render 'rubric_form' %> <br>
 
 
@@ -25,6 +25,7 @@
     <%= f.submit %>
   </p>
   <% end %>
+
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
   <div class="col-md-6">
     <% @feedbacks.each do |feedback|  %>
