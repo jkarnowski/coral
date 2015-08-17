@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
   def create
     @teacher = Teacher.find_by(email: params[:sessions][:email])
     session[:id] = @teacher.id
-    redirect_to "/videos"
+    redirect_to "/metafeedback/new"
   end
 
   def destroy

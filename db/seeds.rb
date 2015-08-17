@@ -45,3 +45,12 @@ end
     rubric_id: number
     })
 end
+
+10.times do
+   Metafeedback.create({
+    actionable: [true, false].sample,
+    specific: [true, false].sample,
+    kind: [true, false].sample,
+    feedback_id: (1..10).to_a.sample
+  })
+end
