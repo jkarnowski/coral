@@ -1,4 +1,5 @@
-<h2>Add a video to your profile by entering a YouTube link</h2>
+<div class="containrr">
+<h2 class="all-videos">Add a video to your profile by entering a YouTube link</h2>
 <%= form_for :videos, :url => url_for(controller: '/videos', action: 'create'), :html => {:method => :post} do |f| %>
 	<%= f.label :embedded_url %>
 	<%= f.text_field :embedded_url %>
@@ -6,3 +7,4 @@
   <%= f.text_field :title %>
 	<%= f.submit "Add" %>
 <% end %>
+</div>
