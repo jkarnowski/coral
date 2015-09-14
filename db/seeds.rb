@@ -17,14 +17,26 @@
   })
 end
 
-(1..10).each do |number|
-  number = Video.create({
-    embedded_url: "https://www.youtube.com/watch?v=lWA2pjMjpBs",
-    title: Faker::Lorem.sentence,
-    youtube_id: "lWA2pjMjpBs",
-    teacher_id: number
+Video.create({
+    embedded_url: "https://www.youtube.com/watch?v=-hiGJwMNNsM",
+    title: "Factor by Grouping",
+    youtube_id: "hiGJwMNNsM",
+    teacher_id: 1
   })
-end
+
+Video.create({
+    embedded_url: "https://www.youtube.com/watch?v=1T-rsltsWnM",
+    title: "Solving Quadratic Equations",
+    youtube_id: "1T-rsltsWnM",
+    teacher_id: 1
+  })
+
+Video.create({
+    embedded_url: "https://www.youtube.com/watch?v=59j0ALU3N7k",
+    title: "Solving Logarithms",
+    youtube_id: "59j0ALU3N7k",
+    teacher_id: 2
+  })
 
 (1..10).each do |number|
   number = Feedback.create({
