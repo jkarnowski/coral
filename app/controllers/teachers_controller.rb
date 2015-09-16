@@ -4,8 +4,6 @@ class TeachersController < ApplicationController
   end
 
   def show
-    p params
-    p "*" * 100
     @teacher = Teacher.find_by(id: params[:id])
     @videos = @teacher.videos
   end

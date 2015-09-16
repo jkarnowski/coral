@@ -1,7 +1,6 @@
 <div class="container">
   <div class="bigger">
   <h1 class="headerr">Please rate one pieces of feedback.</h1><br>
-  <% p @feedback.id %>
   <p><%= @feedback.content %></p>
   <%= form_for :metafeedback, :url => url_for(controller: 'metafeedback', action: "create"), :html => {:method => :post, :class => "form_group"} do |f| %>
     <%= f.label :Specific %><br>
